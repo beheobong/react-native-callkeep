@@ -81,6 +81,22 @@ class RNCallKeep {
     RNCallKeepModule.displayIncomingCall(uuid, handle, handleType, hasVideo, localizedCallerName);
   };
 
+  hideFromLockedScreen() {
+    if (isIOS) {
+      return;
+    }
+
+    RNCallKeepModule.hideFromLockedScreen();
+  }
+
+  showOnLockedScreen() {
+    if (isIOS) {
+      return;
+    }
+
+    RNCallKeepModule.showOnLockedScreen();
+  }
+
   answerIncomingCall = (uuid) => {
     if (!isIOS) {
       RNCallKeepModule.answerIncomingCall(uuid);

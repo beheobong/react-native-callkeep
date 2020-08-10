@@ -207,6 +207,31 @@ public class RNCallKeepModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
+    public void showOnLockedScreen() {
+        Log.d(TAG, "showing over lock screen");
+
+        Activity activity = getCurrentActivity();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+            activity.setShowWhenLocked(true);
+        } else {
+            activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+        }
+    }
+
+    @ReactMethod
+    public void hideFromLockedScreen() {
+        Log.d(TAG, "hiding from lock screen");
+        Activity activity = getCurrentActivity();
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O_MR1) {
+            activity.setShowWhenLocked(false);
+        } else {
+            activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_SHOW_WHEN_LOCKED);
+        }
+    }
+
+    @ReactMethod
     public void endAllCalls() {
         Log.d(TAG, "endAllCalls called");
         if (!isConnectionServiceAvailable() || !hasPhoneAccount()) {

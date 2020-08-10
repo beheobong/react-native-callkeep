@@ -42,22 +42,10 @@ export type HeadlessExtras = {
 }
 
 export default class RNCallKeep {
-  static addEventListener(type: Events, handler: (args: any) => void) {
-
-  }
-
-  static removeEventListener(type: Events) {
-
-  }
-
-  static async setup(options: IOptions): Promise<void> {
-
-  }
-
-  static hasDefaultPhoneAccount(): boolean {
-
-  }
-
+  static addEventListener(type: Events, handler: (args: any) => void): void
+  static removeEventListener(type: Events): void
+  static setup(options: IOptions): Promise<void>
+  static hasDefaultPhoneAccount(): boolean
   static checkPhoneAccountEnabled(): Promise<boolean>
   static registerPhoneAccount(): void
 
@@ -67,9 +55,7 @@ export default class RNCallKeep {
     localizedCallerName?: string,
     handleType?: HandleType,
     hasVideo?: boolean,
-  ) {
-
-  }
+  ): void
 
   static startCall(
     uuid: string,
@@ -77,111 +63,67 @@ export default class RNCallKeep {
     contactIdentifier?: string,
     handleType?: HandleType,
     hasVideo?: boolean,
-  ) {
+  ): void
 
-  }
   static updateDisplay(
     uuid: string,
     displayName: string,
     handle: string,
-  ) {
-
-  }
+  ): void
 
   /**
      * @description reportConnectedOutgoingCallWithUUID method is available only on iOS.
   */
-  static reportConnectedOutgoingCallWithUUID(uuid: string) {
-
-  }
+  static reportConnectedOutgoingCallWithUUID(uuid: string): void
 
   /**
      * @description reportConnectedOutgoingCallWithUUID method is available only on iOS.
   */
-  static reportConnectingOutgoingCallWithUUID(uuid: string): void {
+  static reportConnectingOutgoingCallWithUUID(uuid: string): void
+  static reportEndCallWithUUID(uuid: string, reason: number): void
 
-  }
-  static reportEndCallWithUUID(uuid: string, reason: number): void {
-
-  }
-
-  static rejectCall(uuid: string) {
-
-  }
-
-  static endCall(uuid: string) {
-
-  }
-
-  static endAllCalls() {
-
-  }
-
-  static setReachable() {
-
-  }
-  static isCallActive(uuid: string): Promise<boolean> {
-
-  }
+  static rejectCall(uuid: string): void
+  static endCall(uuid: string): void
+  static endAllCalls(): void
+  static setReachable(): void
+  static isCallActive(uuid: string): Promise<boolean>
   /**
      * @description supportConnectionService method is available only on Android.
   */
-  static supportConnectionService(): boolean {
-
-  }
+  static supportConnectionService(): boolean
 
   /**
      * @description hasPhoneAccount method is available only on Android.
   */
-  static async hasPhoneAccount(): Promise<boolean> {
+  static hasPhoneAccount(): Promise<boolean>
 
-  }
-
-  static async hasOutgoingCall(): Promise<boolean> {
-
-  }
+  static hasOutgoingCall(): Promise<boolean>
 
   /**
      * @description setMutedCall method is available only on iOS.
   */
-  static setMutedCall(uuid: string, muted: boolean) {
+  static setMutedCall(uuid: string, muted: boolean): void
 
-  }
-
-  static setOnHold(uuid: string, held: boolean) {
-
-  }
+  static setOnHold(uuid: string, held: boolean): void
 
   /**
      * @descriptions sendDTMF is used to send DTMF tones to the PBX.
   */
-  static sendDTMF(uuid: string, key: string) {
+  static sendDTMF(uuid: string, key: string): void
 
-  }
+  static checkIfBusy(): Promise<boolean>
 
-  static checkIfBusy(): Promise<boolean> {
-
-  }
-
-  static checkSpeaker(): Promise<boolean> {
-
-  }
+  static checkSpeaker(): Promise<boolean>
 
   /**
      * @description setAvailable method is available only on Android.
   */
-  static setAvailable(active: boolean) {
+  static setAvailable(active: boolean): void
 
-  }
-
-  static setCurrentCallActive() {
-
-  }
-
-  static backToForeground() {
-
-  }
-
+  static setCurrentCallActive(callUUID: string): void
+  static backToForeground(): void
   static openAppFromHeadlessMode(callUUID: string): void
   static getExtrasFromHeadlessMode(): Promise<HeadlessExtras>
+  static showOnLockedScreen(): void
+  static hideFromLockedScreen(): void
 }
