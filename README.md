@@ -4,7 +4,7 @@ Improvements:
 - take control over permissions, no more obtrusive alerts. You can redirect to phone account settings from your app.
 
 API (Android only)
-```
+```typescript
 static checkPhoneAccountEnabled(): Promise<boolean>
 static registerPhoneAccount(): void
 ```
@@ -13,7 +13,7 @@ static registerPhoneAccount(): void
 
 - new, better headless mode. You can wake killed app on Android and pass parameters like `callUUID`
 API (Android only)
-```
+```typescript
 static openAppFromHeadlessMode(callUUID: string): void
 static getExtrasFromHeadlessMode(): Promise<HeadlessExtras>
 ```
@@ -21,7 +21,7 @@ static getExtrasFromHeadlessMode(): Promise<HeadlessExtras>
 - render custom UI over locked screen (you don't need to unlock your phone)
 
 API (Android only):
-```
+```typescript
 static showOnLockedScreen(): void
 static hideFromLockedScreen(): void
 ```
